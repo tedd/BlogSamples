@@ -7,6 +7,7 @@ public class VoxelEngine : MonoBehaviour
 {
     private World _world = new World();
     private System.Random _random = new System.Random();
+    public Material Material;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,9 @@ public class VoxelEngine : MonoBehaviour
         var chunk = chunkGameObject.AddComponent<Chunk>();
         // Add chunk to world at position 0, 0, 0
         _world.Chunks.Add(new ChunkId(0, 0, 0), chunk);
+        // Set material
+        chunkGameObject.GetComponent<MeshRenderer>().material = Material;
+
     }
 
     // Update is called once per frame

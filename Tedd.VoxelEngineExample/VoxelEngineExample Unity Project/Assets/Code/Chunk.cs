@@ -40,6 +40,12 @@ public class Chunk : MonoBehaviour
         0, 6, 7,
         0, 1, 6
     };
+    private static Vector3[] _cubeNormals = new[]
+    {
+        Vector3.up,Vector3.up,Vector3.up,
+        Vector3.up,Vector3.up,Vector3.up,
+        Vector3.up,Vector3.up
+    };
 
     public UInt16 this[int x, int y, int z]
     {
@@ -63,6 +69,7 @@ public class Chunk : MonoBehaviour
     {
         var vertices = new List<Vector3>();
         var triangles = new List<int>();
+        var normals = new List<Vector3>();
 
         for (var x = 0; x < 16; x++)
         {
@@ -81,6 +88,8 @@ public class Chunk : MonoBehaviour
                         vertices.Add(pos + vert); // Voxel postion + cubes vertex
                     foreach (var tri in _cubeTriangles)
                         triangles.Add(verticesPos + tri); // Position in vertices list for new vertex we just added
+                    foreach (var normal in _cubeNormals)
+                        normals.Add(normal);
                 }
             }
         }
@@ -89,6 +98,7 @@ public class Chunk : MonoBehaviour
         var mesh = new Mesh();
         mesh.SetVertices(vertices);
         mesh.SetTriangles(triangles.ToArray(), 0);
+        mesh.SetNormals(normals);
         _meshFilter.mesh = mesh;
     }
 
