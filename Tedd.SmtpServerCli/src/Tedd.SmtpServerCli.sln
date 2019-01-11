@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28407.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tedd.SmtpServerCli", "Tedd.SmtpServerCli\Tedd.SmtpServerCli.csproj", "{90A3C45D-750F-4F46-94D0-B17B5CFCDCA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tedd.SmtpServerCli.Daemon", "Tedd.SmtpServerCli.Daemon\Tedd.SmtpServerCli.Daemon.csproj", "{200BA563-A21C-4126-9F6E-436CC8C9F60B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90A3C45D-750F-4F46-94D0-B17B5CFCDCA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90A3C45D-750F-4F46-94D0-B17B5CFCDCA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90A3C45D-750F-4F46-94D0-B17B5CFCDCA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90A3C45D-750F-4F46-94D0-B17B5CFCDCA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{200BA563-A21C-4126-9F6E-436CC8C9F60B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{200BA563-A21C-4126-9F6E-436CC8C9F60B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{200BA563-A21C-4126-9F6E-436CC8C9F60B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{200BA563-A21C-4126-9F6E-436CC8C9F60B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5F33389-3958-4B30-89A9-6E95CC260776}
+	EndGlobalSection
+EndGlobal

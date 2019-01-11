@@ -22,8 +22,8 @@ namespace Tedd.DynamicBindingBenchmark
             Add(TargetMethodColumn.Method, StatisticColumn.OperationsPerSecond, StatisticColumn.Iterations, StatisticColumn.Min, StatisticColumn.Max);
 
             Add(Job.ShortRun
-                .WithLaunchCount(10)
-                .WithIterationCount(10000)
+                .WithLaunchCount(1)
+                .WithIterationCount(1000)
 
                 .With(Platform.AnyCpu)
                 .With(Jit.RyuJit)
