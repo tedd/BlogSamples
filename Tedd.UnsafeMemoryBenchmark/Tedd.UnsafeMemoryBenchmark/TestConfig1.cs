@@ -17,17 +17,13 @@ using BenchmarkDotNet.Mathematics;
 using BenchmarkDotNet.Order;
 using BenchmarkDotNet.Reports;
 
-using Microsoft.Diagnostics.Tracing.Parsers.JScript;
-
-using Perfolizer.Mathematics.Common;
-
 namespace Tedd.UnsafeMemoryBenchmark;
 public class TestConfig1 : ManualConfig
 {
     public TestConfig1()
     {
         AddColumn(TargetMethodColumn.Method, BaselineColumn.Default, RankColumn.Arabic, BaselineRatioColumn.RatioStdDev, BaselineRatioColumn.RatioStdDev);
-        AddColumn(StatisticColumn.Iterations, StatisticColumn.Min, StatisticColumn.Max, StatisticColumn.StdDev, StatisticColumn.StdErr, StatisticColumn.Skewness, StatisticColumn.Error,  StatisticColumn.OperationsPerSecond, StatisticColumn.Kurtosis);
+        AddColumn(StatisticColumn.Iterations, StatisticColumn.Min, StatisticColumn.Max, StatisticColumn.Mean, StatisticColumn.Median, StatisticColumn.StdDev, StatisticColumn.StdErr, StatisticColumn.Skewness, StatisticColumn.Error,  StatisticColumn.OperationsPerSecond, StatisticColumn.Kurtosis);
         AddExporter(RPlotExporter.Default, HtmlExporter.Default, AsciiDocExporter.Default, MarkdownExporter.GitHub);
         AddDiagnoser(new InliningDiagnoser(), MemoryDiagnoser.Default, new DisassemblyDiagnoser(new DisassemblyDiagnoserConfig(printSource: true, printInstructionAddresses: true, exportHtml: true, exportCombinedDisassemblyReport: true, exportDiff: true)));
         WithOrderer(new DefaultOrderer(SummaryOrderPolicy.FastestToSlowest, MethodOrderPolicy.Declared));

@@ -57,29 +57,35 @@ public class NormalFixedUnsafeArray
     }
 
     [Benchmark(Description = "Normal", Baseline = true)]
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public void NormalSum()
     {
-        for (int i = 0; i < Iterations; i++)
-            Sum += Array[Random.Next(ArraySize)];
+        var s = ArraySize;
+        for (int i = 0; i < s; i++)
+            Sum += Array[i];
     }
 
     [Benchmark(Description = "Fixed")]
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public unsafe void FixedSum()
     {
         fixed (int* p = &Array[0])
         {
-            for (int i = 0; i < Iterations; i++)
-                Sum += *(p + Random.Next(ArraySize));
+            var s = ArraySize;
+            for (int i = 0; i < s; i++)
+                Sum += *(p + i);
         }
     }
 
 
     [Benchmark(Description = "Unsafe")]
+    [MethodImpl(MethodImplOptions.AggressiveOptimization)]
     public unsafe void UnsafeSum()
     {
         var p = Unsafe.AsPointer(ref Array[0]);
-        for (int i = 0; i < Iterations; i++)
-            Sum += Unsafe.Read<int>(Unsafe.Add<int>(p, Random.Next(ArraySize)));
+        var s = ArraySize;
+        for (int i = 0; i < s; i++)
+            Sum += Unsafe.Read<int>(Unsafe.Add<int>(p, i));
     }
 
 }
